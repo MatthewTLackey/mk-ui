@@ -444,10 +444,10 @@
 
 			var same = this.$input.val() && this.$input.val() === this.query;
 
-			if (same && this.cache[this.$input.val().toUpperCase()]) {
+			if (same && !this.options.preventCaching && this.cache[this.$input.val().toUpperCase()]) {
 				this.show();
 			} 
-			else if (this.cache[this.$input.val().toUpperCase()]) {
+			else if (!this.options.preventCaching && this.cache[this.$input.val().toUpperCase()]) {
 				this.query = this.$input.val();
 				this.render(this.cache[this.$input.val().toUpperCase()]);
 			} else {
